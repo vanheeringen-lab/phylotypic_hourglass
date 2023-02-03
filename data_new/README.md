@@ -1,0 +1,1 @@
+gimme motif2factors --ortholog-references galGal6 ce11 UCB_Xtro_10.0 GRCz11 BraLan2 GRCm38.p6 BDGP6.32 ARS-UCD1.2 phaCin_unsw_v4.1 rCheMyd1.pri nHd_3.1 --keep-intermediate  --genomes_dir ./genomes --tempdir temp --outdir out

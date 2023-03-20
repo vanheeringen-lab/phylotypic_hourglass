@@ -156,7 +156,7 @@ def get_peaks(bedfiles, timepoint_specific=False):
             tp_specific_dmel = pyranges.PyRanges(df=pd.read_table(bedfiles[0][i], usecols=range(3), index_col=False, names=["Chromosome", "Start", "End"])).nearest(tp_specific_dmel)
             tp_specific_dvir = pyranges.PyRanges(df=pd.read_table(bedfiles[1][i], usecols=range(3), index_col=False, names=["Chromosome", "Start", "End"])).nearest(tp_specific_dvir)
 
-            # and only keep the time point peaks which are not overlapping (distace > 0)
+            # and only keep the time point peaks which are not overlapping (distance > 0)
             dmel_peaks[tp] = pyranges.PyRanges(df=tp_specific_dmel.df[tp_specific_dmel.df["Distance"] > 0])
             dvir_peaks[tp] = pyranges.PyRanges(df=tp_specific_dvir.df[tp_specific_dvir.df["Distance"] > 0])
         #
@@ -305,7 +305,7 @@ def pairwise_jensen_shannon(df1, df2):
     
     for k, x_col in enumerate(df1.columns):
         for l, y_col in enumerate(df2.columns):
-            corr_matrix[k, l] = -jensen_shannon_distance(df1[x_col], df2[y_col])
+            corr_matrix[k, l] = jensen_shannon_distance(df1[x_col], df2[y_col])
     return corr_matrix
 
 def pairwise_pearson(df1, df2):
